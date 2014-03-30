@@ -5,7 +5,7 @@ distance running following the methodology laid out in 'Daniel's Running Formula
 from TrainingPlanGenerator import *
 
 
-class DanielsRunningTrainingPlanGenerator(TrainingPlanGenerator):
+class DanielsTrainingPlanGenerator(TrainingPlanGenerator):
     """Extends TrainingPlanGenerator. Creates a training plan based on
         given variables.
     """
@@ -16,9 +16,9 @@ class DanielsRunningTrainingPlanGenerator(TrainingPlanGenerator):
     def generate_training_plan(self, numweeks):
         """Return a DanielsTrainingPlan with the number of weeks specified
             divided into phases.
-            :rtype : DanielsRunningTrainingPlan
+            :rtype : DanielsTrainingPlan
         """
-        plan = DanielsRunningTrainingPlan()
+        plan = DanielsTrainingPlan()
         #fill out phases here
         plan.add_weeks(numweeks)
 
@@ -27,7 +27,7 @@ class DanielsRunningTrainingPlanGenerator(TrainingPlanGenerator):
 
 ###########################################################################
 
-class DanielsRunningTrainingPlan(TrainingPlan):
+class DanielsTrainingPlan(TrainingPlan):
     """
         Extends TrainingPlan. Defines a Daniels Running Formula training plan.
             -Consists of 4 phases typically. Foundation, Early Quality,
@@ -36,11 +36,11 @@ class DanielsRunningTrainingPlan(TrainingPlan):
 
     def __init__(self):
         """initialize a Daniels Running Formula Training plan. Creates 4 phases"""
-        super(DanielsRunningTrainingPlan, self).__init__()
-        self.add_phase(DanielsRunningTrainingPhase(1))
-        self.add_phase(DanielsRunningTrainingPhase(2))
-        self.add_phase(DanielsRunningTrainingPhase(3))
-        self.add_phase(DanielsRunningTrainingPhase(4))
+        super(DanielsTrainingPlan, self).__init__()
+        self.add_phase(DanielsTrainingPhase(1))
+        self.add_phase(DanielsTrainingPhase(2))
+        self.add_phase(DanielsTrainingPhase(3))
+        self.add_phase(DanielsTrainingPhase(4))
         self.numweeks = 0
 
     def __str__(self):
@@ -62,25 +62,25 @@ class DanielsRunningTrainingPlan(TrainingPlan):
             if numweeks <= 24:
                 if numweeks == 24 or numweeks == 22 or numweeks == 17 or 3 < numweeks < 7:
                     phase = self.get_phase(3)
-                    week = DanielsRunningTrainingWeek()
+                    week = DanielsTrainingWeek()
                     week.weeknum = numweeks
                     phase.add_week(week)
                     self.numweeks += 1
                 elif 13 < numweeks < 17 or 6 < numweeks < 10:
                     phase = self.get_phase(2)
-                    week = DanielsRunningTrainingWeek()
+                    week = DanielsTrainingWeek()
                     week.weeknum = numweeks
                     phase.add_week(week)
                     self.numweeks += 1
                 elif 17 < numweeks < 21 or 9 < numweeks < 13:
                     phase = self.get_phase(1)
-                    week = DanielsRunningTrainingWeek()
+                    week = DanielsTrainingWeek()
                     week.weeknum = numweeks
                     phase.add_week(week)
                     self.numweeks += 1
                 elif numweeks == 23 or numweeks == 21 or numweeks == 13 or numweeks < 4:
                     phase = self.get_phase(0)
-                    week = DanielsRunningTrainingWeek()
+                    week = DanielsTrainingWeek()
                     week.weeknum = numweeks
                     phase.add_week(week)
                     self.numweeks += 1
@@ -178,11 +178,11 @@ class DanielsRunningTrainingPlan(TrainingPlan):
 
 ###########################################################################
 
-class DanielsRunningTrainingPhase(TrainingPhase):
+class DanielsTrainingPhase(TrainingPhase):
     """Extends TrainingPhase."""
 
     def __init__(self, phasenum):
-        super(DanielsRunningTrainingPhase, self).__init__(phasenum)
+        super(DanielsTrainingPhase, self).__init__(phasenum)
         if phasenum == 1:
             self.desc = 'Foundation'
         elif phasenum == 2:
@@ -207,7 +207,7 @@ class DanielsRunningTrainingPhase(TrainingPhase):
 
 ###########################################################################
 
-class DanielsRunningTrainingWeek(TrainingWeek):
+class DanielsTrainingWeek(TrainingWeek):
     """Extends TrainingWeek"""
 
     def __repr__(self):
@@ -220,7 +220,7 @@ class DanielsRunningTrainingWeek(TrainingWeek):
 
 ###########################################################################
 
-class DanielsRunningTrainingDay(TrainingDay):
+class DanielsTrainingDay(TrainingDay):
     """Defines a day of training. May contain 0 or more workouts."""
 
 
@@ -228,7 +228,7 @@ class DanielsRunningTrainingDay(TrainingDay):
     ###########################################################################
 
 
-class DanielsRunningTrainingWorkout():
+class DanielsTrainingWorkout():
     """Defines a Daniels workout."""
 
     def __init__(self):
@@ -246,4 +246,4 @@ class DanielsRunningTrainingWorkout():
 
 
 if __name__ == '__main__':
-    gen = DanielsRunningTrainingPlanGenerator()
+    gen = DanielsTrainingPlanGenerator()
