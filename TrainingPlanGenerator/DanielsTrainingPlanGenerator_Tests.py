@@ -2,7 +2,7 @@
 
 import unittest
 
-from DanielsRunningTrainingPlanGenerator import *
+from DanielsTrainingPlanGenerator import *
 
 
 class TestDanielsRunningFormula(unittest.TestCase):

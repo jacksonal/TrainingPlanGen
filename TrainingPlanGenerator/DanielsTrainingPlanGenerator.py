@@ -35,6 +35,7 @@ class DanielsRunningTrainingPlan(TrainingPlan):
     """
 
     def __init__(self):
+        """initialize a Daniels Running Formula Training plan. Creates 4 phases"""
         super(DanielsRunningTrainingPlan, self).__init__()
         self.add_phase(DanielsRunningTrainingPhase(1))
         self.add_phase(DanielsRunningTrainingPhase(2))
@@ -44,8 +45,11 @@ class DanielsRunningTrainingPlan(TrainingPlan):
 
     def __str__(self):
         ret = '%d week plan:' % self.numweeks
+        i = 0
         for phase in self.get_phases():
             if len(phase) > 0:
+                i += 1
+                phase.phasenum = i
                 ret += '\n\t%s' % phase
         return ret
 
@@ -239,3 +243,7 @@ class DanielsRunningTrainingWorkout():
         ret = '\t' * tabs
         ret += self.desc
         return ret
+
+
+if __name__ == '__main__':
+    gen = DanielsRunningTrainingPlanGenerator()
