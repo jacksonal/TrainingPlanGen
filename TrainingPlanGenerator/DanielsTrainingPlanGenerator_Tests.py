@@ -222,6 +222,10 @@ class TestDanielsFormula(unittest.TestCase):
         pace = DanielsTrainingPlan.get_R_pace(56)
         self.assertAlmostEqual(80, pace, delta=2)
 
+    def test_estimate_vdot(self):
+        """validate vdot interpolation function"""
+        self.fail('not implemented yet')
+
     def test_print_workout(self):
         w = DanielsTrainingWorkout()
         w.desc = "E"
@@ -244,13 +248,13 @@ class TestDanielsFormula(unittest.TestCase):
         self.assertEqual(day_string, '%s' % d)
 
     def test_print_week(self):
-        pass
+        self.fail('not implemented yet')
 
     def test_print_phase(self):
-        pass
+        self.fail('not implemented yet')
 
     def test_print_plan(self):
-        pass
+        self.fail('not implemented yet')
 
 
 if __name__ == '__main__':

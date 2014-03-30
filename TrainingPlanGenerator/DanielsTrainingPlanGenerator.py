@@ -86,6 +86,16 @@ class DanielsTrainingPlan(TrainingPlan):
                     self.numweeks += 1
 
     @staticmethod
+    def estimate_vdot(distance, time):
+        """Estimate VDOT value given race distance and time."""
+        if distance == 'HALF':
+            pass
+        elif distance == '5K':
+            pass
+        elif distance == 'MILE':
+            pass
+
+    @staticmethod
     def get_E_pace(vdot):
         """
         Calculate Mile E Pace based on vdot
