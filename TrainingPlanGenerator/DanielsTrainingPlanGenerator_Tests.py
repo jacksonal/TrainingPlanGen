@@ -224,7 +224,110 @@ class TestDanielsFormula(unittest.TestCase):
 
     def test_estimate_vdot(self):
         """validate vdot interpolation function"""
-        self.fail('not implemented yet')
+        print 'testing mile vdot estimates'
+        self.run_mile_vdot_estimations()
+        print 'testing 5k vdot estimates'
+        self.run_5k_vdot_estimations()
+        print 'testing half marathon vdot estimates'
+        self.run_half_vdot_estimations()
+
+    def run_5k_vdot_estimations(self):
+        """estimate vdot for some different 5k times"""
+        #vdot == 30
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.fiveK, 1840)
+        self.assertAlmostEqual(30, vdot, delta=2)
+        print '\t30 ~ %d' % vdot
+
+        #vdot == 36
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.fiveK, 1582)
+        self.assertAlmostEqual(36, vdot, delta=2)
+        print '\t36 ~ %d' % vdot
+
+        #vdot == 53
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.fiveK, 1138)
+        self.assertAlmostEqual(53, vdot, delta=2)
+        print '\t53 ~ %d' % vdot
+
+        #vdot == 58
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.fiveK, 1053)
+        self.assertAlmostEqual(58, vdot, delta=2)
+        print '\t58 ~ %d' % vdot
+
+        #vdot == 67
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.fiveK, 929)
+        self.assertAlmostEqual(67, vdot, delta=2)
+        print '\t67 ~ %d' % vdot
+
+        #vdot == 79
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.fiveK, 806)
+        self.assertAlmostEqual(79, vdot, delta=2)
+        print '\t79 ~ %d' % vdot
+
+    def run_half_vdot_estimations(self):
+        """estimate vdot for some different half marathon times"""
+
+        #vdot == 30
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.halfMarathon, 8464)
+        self.assertAlmostEqual(30, vdot, delta=2)
+        print '\t30 ~ %d' % vdot
+
+        #vdot == 36
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.halfMarathon, 7279)
+        self.assertAlmostEqual(36, vdot, delta=2)
+        print '\t36 ~ %d' % vdot
+
+        #vdot == 53
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.halfMarathon, 5224)
+        self.assertAlmostEqual(53, vdot, delta=2)
+        print '\t53 ~ %d' % vdot
+
+        #vdot == 58
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.halfMarathon, 4830)
+        self.assertAlmostEqual(58, vdot, delta=2)
+        print '\t58 ~ %d' % vdot
+
+        #vdot == 67
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.halfMarathon, 4260)
+        self.assertAlmostEqual(67, vdot, delta=2)
+        print '\t67 ~ %d' % vdot
+
+        #vdot == 79
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.halfMarathon, 3694)
+        self.assertAlmostEqual(79, vdot, delta=2)
+        print '\t79 ~ %d' % vdot
+        pass
+
+    def run_mile_vdot_estimations(self):
+        """estimate vdot for some different mile times"""
+        #vdot == 30
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.mile, 571)
+        self.assertAlmostEqual(30, vdot, delta=2)
+        print '\t30 ~ %d' % vdot
+
+        #vdot == 36
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.mile, 509)
+        self.assertAlmostEqual(36, vdot, delta=2)
+        print '\t36 ~ %d' % vdot
+
+        #vdot == 53
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.mile, 332)
+        self.assertAlmostEqual(53, vdot, delta=2)
+        print '\t53 ~ %d' % vdot
+
+        #vdot == 58
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.mile, 306)
+        self.assertAlmostEqual(58, vdot, delta=2)
+        print '\t58 ~ %d' % vdot
+
+        #vdot == 67
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.mile, 270)
+        self.assertAlmostEqual(67, vdot, delta=2)
+        print '\t67 ~ %d' % vdot
+
+        #vdot == 79
+        vdot = DanielsTrainingPlan.estimate_vdot(Distance.mile, 233.7)
+        self.assertAlmostEqual(79, vdot, delta=2)
+        print '\t79 ~ %d' % vdot
 
     def test_print_workout(self):
         w = DanielsTrainingWorkout()
